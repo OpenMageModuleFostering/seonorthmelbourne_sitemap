@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <signifymap_index_index>
+        <reference name="content">
+            <block type="signifymap/signifymap" name="signifymap" template="signifymap/signifymap.phtml" />
+        </reference>
+    </signifymap_index_index>
+</layout> 

@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Studio45_Signifymap>
+            <version>0.1.0</version>
+        </Studio45_Signifymap>
+    </modules>
+    <frontend>
+        <routers>
+            <signifymap>
+                <use>standard</use>
+                <args>
+                    <module>Studio45_Signifymap</module>
+                    <frontName>signifymap</frontName>
+                </args>
+            </signifymap>
+        </routers>
+        <layout>
+            <updates>
+                <signifymap>
+                    <file>signifymap.xml</file>
+                </signifymap>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<signifymap>
+				<use>admin</use>
+				<args>
+					<module>Studio45_Signifymap</module>
+					<frontName>signifymap</frontName>
+				</args>
+			</signifymap>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<signifymap module="signifymap">
+				<title>XML Sitemap</title>
+				<sort_order>71</sort_order>
+				<children>
+					<sitemap_submission translate="title" module="signifymap">
+                    <title>Sitemaps Generator</title>
+                    <action>signifymap/adminhtml_signifymap</action>
+                    <sort_order>0</sort_order>
+                </sitemap_submission>
+                <frontend_configuration translate="title" module="signifymap">
+                    <title>Sitemaps Configuration</title>
+                    <action>signifymap/adminhtml_signifymap/config</action>
+                    <sort_order>10</sort_order>
+                </frontend_configuration>
+                <view_response translate="title" module="signifymap">
+                    <title>View Logs</title>
+                    <action>signifyresponse/adminhtml_signifyresponse/index</action>
+                    <sort_order>100</sort_order>
+                </view_response>
+				</children>      
+				               
+			</signifymap>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Studio45_Signifymap>
+							<title>Signifymap Module</title>
+							<sort_order>10</sort_order>
+						</Studio45_Signifymap>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<signifymap>
+					<file>signifymap.xml</file>
+				</signifymap>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <signifymap>
+                <class>Studio45_Signifymap_Model</class>
+                <resourceModel>signifymap_mysql4</resourceModel>
+            </signifymap>
+			
+            <signifymap_mysql4>
+                <class>Studio45_Signifymap_Model_Mysql4</class>
+                <entities>
+                    <signifymap>
+                        <table>signifymap</table>
+                    </signifymap>
+					 <config>
+                        <table>signifymap_config</table>
+                    </config>
+                </entities>
+            </signifymap_mysql4>
+			
+        </models>
+        <resources>
+            <signifymap_setup>
+                <setup>
+                    <module>Studio45_Signifymap</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </signifymap_setup>
+            <signifymap_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </signifymap_write>
+            <signifymap_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </signifymap_read>
+        </resources>
+        <blocks>
+            <signifymap>
+                <class>Studio45_Signifymap_Block</class>
+            </signifymap>
+        </blocks>
+        <helpers>
+            <signifymap>
+                <class>Studio45_Signifymap_Helper</class>
+            </signifymap>
+        </helpers>
+    </global>
+	
+	<crontab>
+        <jobs>
+            <Studio45_Signifymap>
+			 <schedule>
+                      <cron_expr>0 */1 * * *</cron_expr>
+                 </schedule>
+                <run>
+                    <model>signifymap/signifymap::update</model>
+                </run>
+            </Studio45_Signifymap>
+        </jobs>
+    </crontab>
+	
+</config>

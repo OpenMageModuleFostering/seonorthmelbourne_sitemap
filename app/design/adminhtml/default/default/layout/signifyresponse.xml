@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <signifyresponse_adminhtml_signifyresponse_index>
+        <reference name="content">
+            <block type="signifyresponse/adminhtml_signifyresponse" name="signifyresponse" />
+        </reference>
+    </signifyresponse_adminhtml_signifyresponse_index>
+</layout>

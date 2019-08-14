@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <signifymap_adminhtml_signifymap_index>
+        <reference name="content">
+            <block type="signifymap/adminhtml_signifymap" name="signifymap" />
+        </reference>
+    </signifymap_adminhtml_signifymap_index>
+	
+	<signifymap_adminhtml_signifymap_config>
+        <reference name="content">
+		    <block type="signifymap/adminhtml_signifymap_edit_tab_config" name="signifymap_config"/>
+	   </reference>
+    </signifymap_adminhtml_signifymap_config>
+</layout>
