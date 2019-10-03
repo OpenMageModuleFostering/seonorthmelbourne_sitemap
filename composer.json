@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Seonorthmelbourne_sitemap",
+    "name": "OpenMageModuleFostering\/Seonorthmelbourne_sitemap",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "The SEO North Melbourne Sitemap Extension generates XML sitemap which contains URL's for all public pages of your website, and submit the xml file on different channel.",
     "authors": [
-    {
-        "name": "SEO North Melbourne",
-        "email": "info@seonorthmelbourne.com.au"
-    }
-],
+        {
+            "name": "SEO North Melbourne",
+            "email": "info@seonorthmelbourne.com.au"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
